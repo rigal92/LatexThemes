@@ -1,0 +1,58 @@
+\mode<presentation>
+\usetikzlibrary{positioning}
+
+% Backgroung
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  % \fill [black] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \node at (-0.1,-0.1) [anchor=south west]{\includegraphics[width=.3\paperwidth]{Images/graphene_corner}};
+  % \node at (0.2cm,.99*\the\paperheight) [anchor=north west]{\includegraphics[width=.2\paperwidth]{Images/Logo-ILM}};
+  \node (UCBL) at (\the\paperwidth,0) [anchor=south east]{\includegraphics[height=.055\paperheight]{Images/UCBL}};
+  \node (2DPRESTO) [left = .3 of UCBL] [anchor=east]{\includegraphics[height=.055\paperheight]{Images/2dpresto}};
+  \node (ILM) [left = .3 of 2DPRESTO] [anchor=east]{\includegraphics[height=.055\paperheight]{Images/Logo-ILM}};
+  \node [left = .3 of ILM] [anchor=east]{\includegraphics[height=.055\paperheight]{Images/LogoHP}};
+  
+
+  %white background when not title
+  % \ifnum\thepage>1\relax%
+  %  \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  %  \fi
+  % \end{tikzpicture}
+  \ifnum\thepage>1\relax%
+  \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \node (ILM) at (0,0) [anchor=south west]{\includegraphics[height=.04\paperheight]{Images/Logo-ILM}};
+  \node (2DPRESTO) [right = .5 of ILM] [anchor=west]{\includegraphics[height=.04\paperheight]{Images/2dpresto}};
+  \node (UCBL) [right = .5 of 2DPRESTO] [anchor=west]{\includegraphics[height=.04\paperheight]{Images/UCBL}};
+  \node [right = .5 of UCBL] [anchor=west]{\includegraphics[height=.04\paperheight]{Images/LogoHP}};
+  
+
+   \fi
+  \end{tikzpicture}
+}
+
+
+% Title page
+\defbeamertemplate*{title page}{phd}[1][]
+{ %
+	\vskip1cm%
+    \begin{beamercolorbox}[wd=\paperwidth,center,dp=0pt,#1]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.2cm%
+    \begin{beamercolorbox}[center,dp=0pt,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     % \vskip0.2cm%
+    \begin{beamercolorbox}[center,dp=0pt,#1]{date}
+      \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}    
+    \vskip1cm%
+    \begin{beamercolorbox}[leftskip=5.8cm,dp=0pt,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+  \vfill
+}
+
+
+\mode<all>
